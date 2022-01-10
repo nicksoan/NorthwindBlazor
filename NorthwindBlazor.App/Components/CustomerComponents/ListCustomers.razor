@@ -1,0 +1,26 @@
+﻿ <table class="table">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Country</th>
+                <th>Contact</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in CustomerList)
+            {
+                <tr>
+                    <td>@customer.CompanyName</td>
+                    <td>@customer.Country</td>
+                    <td>@customer.ContactName</td>
+                    @*<td><a href="customer/@customer.CustomerId">View</a></td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@code {
+    [Parameter]
+    public IEnumerable<NorthwindBlazor.Lib.Models.Entity.Customer> CustomerList { get; set; }
+}

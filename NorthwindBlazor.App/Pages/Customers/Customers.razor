@@ -1,0 +1,23 @@
+﻿@page "/customers"
+@inject ICustomerService CustomerService
+
+<h3>Customers</h3>
+
+@if (CustomerList != null)
+{
+   <ListCustomers CustomerList=CustomerList />
+}
+else
+{
+    <h2>Loading...</h2>
+}
+
+
+@code {
+    private IEnumerable<NorthwindBlazor.Lib.Models.Entity.Customer> CustomerList;
+
+    protected override void OnInitialized()
+    {
+       CustomerList = CustomerService.GetCustomerList();
+    }
+}
