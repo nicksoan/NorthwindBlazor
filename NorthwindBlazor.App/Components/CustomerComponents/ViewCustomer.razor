@@ -1,0 +1,30 @@
+﻿@page "/viewcustomer/{id}"
+@page "/viewcustomer/"
+
+<h3>ViewCustomer</h3>
+@inject ICustomerService CustomerService
+
+@if(Customer != null)
+{
+    <h2>CustomerId = @Customer.CustomerId</h2> 
+}
+else
+{
+    
+    <p>Loading...</p> 
+}
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    public Customer Customer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Customer = await CustomerService.GetCustomerById(id);
+
+        StateHasChanged();
+    }
+    
+}

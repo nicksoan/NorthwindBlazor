@@ -11,9 +11,9 @@ namespace NorthwindBlazor.App.Services
             _context = context;
         }
 
-        public Customer GetCustomerById(string customerId)
+        public async Task<Customer> GetCustomerById(string customerId)
         {
-            return _context.Customers.Find(customerId);
+            return await _context.Customers.FindAsync(customerId);
         }
 
         public IEnumerable<Customer> GetCustomerList()
