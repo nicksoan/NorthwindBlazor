@@ -9,7 +9,18 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+
+    [Parameter]
+    public int SeedNumber { get; set; }
     private int currentCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (SeedNumber > 0)
+        {
+            currentCount = SeedNumber++;
+        }
+    }
 
     private void IncrementCount()
     {

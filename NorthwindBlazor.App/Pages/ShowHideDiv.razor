@@ -1,0 +1,24 @@
+﻿@page "/showhidediv"
+
+<h3>Show/Hide Div</h3>
+
+<button @onclick="@Show">Show/Hide</button>
+
+<select class="form-control" @bind="IsShow">
+    <option value="True">True</option>
+    <option value="False">False</option>
+</select>
+
+
+<div hidden=@IsShow>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor eros ipsum, vel porta magna hendrerit non. Integer dictum sem sit amet ante cursus, vitae mollis nisi placerat. Nam pretium erat sit amet placerat fermentum. Nullam vel sollicitudin orci. Curabitur vel dui sed velit vestibulum pharetra. Etiam vitae consectetur nisi, eu iaculis lorem. Morbi cursus, nisl et consectetur sollicitudin, ipsum lacus sodales purus, sed convallis felis dui eget mi. Fusce tempus est nec lorem convallis commodo. Nullam rutrum mattis augue a mattis. Duis sed risus commodo, lobortis turpis at, scelerisque metus. Proin vulputate non libero sit amet tincidunt. Morbi placerat bibendum ante quis mattis. Sed aliquam nibh suscipit, tincidunt libero sit amet, consequat quam.</p>
+</div>
+
+@code {
+    private bool IsShow { get; set; }
+
+    private void Show()
+    {
+        IsShow = !IsShow;
+    }
+ } 
