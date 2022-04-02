@@ -20,5 +20,17 @@ namespace NorthwindBlazor.App.Services
         {
             return _context.Customers;
         }
+
+        public IEnumerable<Customer> GetCustomerList(string customerName)
+        {
+            return GetCustomerListByName(customerName);
+        }
+
+        //search customers by name
+        public IEnumerable<Customer> GetCustomerListByName(string name)
+        {
+            return _context.Customers.Where(c => c.CompanyName.Contains(name));
+        }
+
     }
 }
